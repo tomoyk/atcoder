@@ -5,7 +5,17 @@ A=[]
 B=[]
 
 for i in range(0, N):
-    A[i]=input()
+    A.append(input())
 
 for i in range(0, M):
-    B[i]=input()
+    B.append(input())
+
+'''
+print(A)
+print(B)
+'''
+
+for 
+    for
+        for
+            for
