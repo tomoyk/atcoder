@@ -18,7 +18,6 @@ count=0
 
 width=int(len(A)/2+len(A)%2)
 print(width)
-sys.exit()
 
 def getHalf(num):
     if(num%2==0):
@@ -36,6 +35,8 @@ while(True):
     else:
         print("左から中を検索")
         width=getHalf(width)
+
+sys.exit()
 
 # 
 # 全探索
