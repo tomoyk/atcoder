@@ -22,4 +22,9 @@ for i in range(0, len(a)):
 if(len(set(a))==1 and a[0]>=3200):
     base+=1
 
+'''
+if(len(scores)-1==counter):
+    min_counter+=1
+'''
+
 print(base+counter, counter+min_counter)
