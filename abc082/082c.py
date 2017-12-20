@@ -4,61 +4,49 @@ N=int(input())
 a=[int(i) for i in input().split()] 
 
 a.sort()
-aa=[int(i) for i in set(a)]
+numbers=[int(i) for i in set(a)]
+numbers.sort()
 
 print("a", a)
-print("aa", aa)
+print("numbers", numbers)
 
-head=0
-err=0
-for i in aa:
-    ar=[i] * i
-    if(a[head:head+i] == ar):
-        print("fit-i:",i)
-        head+=i
-    else:
-        print("unfit-i:",i)
-        try:
-            for j in range(0, i):
-                if(a[head+j]!=i):
-                    head+=j
-                    err+=i-j
-                    break
-        except(e):
-            
-    if(i>len(a)):
-        break
+def main():
+    label=0 # numbersの添字
+    i=0 # aの添字
+    err=0 # 削除する要素の数
+    while(True):
+        # 範囲を超えるパターン
+        if(len(numbers) < label):
+        # if(i>len(a)):
+            print("Exit")
+            return err
+        # 最初が一致
+        if(a[i]==numbers[label]):
+            # 要素数分を確保
+            ar=[ numbers[label] ] * numbers[label]
+            # ピッタリ一致
+            if(a[ i:i+numbers[label] ] == ar):
+                print("fit-i:",i)
+                i += numbers[label]
+                label += 1
+            # 最初が一致かつ不完全一致
+            else:
+                print("unfit-i:",i)
+                for j in range(0, i):
+                    try:
+                        # 値が不一致(要素)
+                        if(a[i+j]!=i):
+                            print("Unmatched: j=", j)
+                            i+=j
+                            err+=i-j
+                            break
+                    except IndexError:
+                        err+=i-j
+                        break
+        # 最初が不一致(右に1つずらす)
+        else:
+            err+=1
+            i+=1
 
-print(head)
-print(err)
+print(main())
 
-'''
-def func(n):
-    for i in range(0, n):
-       if(a[base+i]!=n):
-           return i
-
-key=0
-base=0
-while(True):
-    num=aa[key] 
-    ar=[num] * num
-
-    if(a[base:base+num]==ar[0:num]):
-        print("ok")
-    else:
-        print("unok")
-        num=func(num)
-
-    if(len(a)==base+num):
-        print("correct", 0)
-        break
-
-    base+=num
-
-    if(len(a)<=key):
-        key+=1
-    else:
-        print("fail", len(a)-base)
-        break
-'''
