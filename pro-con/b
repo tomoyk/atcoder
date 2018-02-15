@@ -1,0 +1,6 @@
+x,k=[int(i) for i in input().split()]
+
+r=x//(10**k) +1
+r=r*(10**k)
+
+print(r)

@@ -1,0 +1,6 @@
+N=int(intput())
+x=[int(i) for i in input().split()]
+c=[int(i) for i in input().split()]
+v=[int(i) for i in input().split()]
+
+
